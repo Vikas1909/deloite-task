@@ -1,4 +1,9 @@
 ```
+
+
+car rentel ,ethod nmfalks..
+
+***********
 public float calculateDiscount(float rentalAmount) {
 		float discountAmount = 0.0f;
 		char custType='a';
@@ -29,5 +34,5 @@ public float calculateDiscount(float rentalAmount) {
 		return discountAmount;
 	}
 	
-	fuuf
-	
+*****************
+f
