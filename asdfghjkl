@@ -29,3 +29,5 @@ public float calculateDiscount(float rentalAmount) {
 		return discountAmount;
 	}
 	
+	fuuf
+	
