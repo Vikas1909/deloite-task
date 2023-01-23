@@ -1,38 +1,71 @@
-```
+full classs bheji h pura chep dena 
+*******premium customer class 
 
 
-car rentel ,ethod nmfalks..
+package progusingjava;
+import java.util.Arrays;
 
-***********
-public float calculateDiscount(float rentalAmount) {
-		float discountAmount = 0.0f;
-		char custType='a';
+//DO NOT MODIFY THE CODE PROVIDED TO YOU
+
+public class PremiumCustomer extends Customer {
+	private String reqSubscriptionType;
+	private float creditPoints;
+
+	public PremiumCustomer(String custName,String custEmailId,char custType,String custLocation,String reqDate,String[] reqServicesArr,int[] reqWeightArr,int noOfDays,String reqSubscriptionType) {
+		super(custName,custEmailId,custType,custLocation,reqDate,reqServicesArr,reqWeightArr,noOfDays);
+		this.reqSubscriptionType=reqSubscriptionType;
+	}	
+
+	public String getReqSubscriptionType() {
+		return this.reqSubscriptionType;
+	}
+
+	public float getCreditPoints() {
+		return this.creditPoints;
+	}
+
+	public void setCreditPoints(float creditPoints) {
+		this.creditPoints = creditPoints;
+	}
+
+	//To Trainees
+	@Override
+	public int identifyBasicCost() {
+		int cost = 0;
 		
-		for(int i=0;i<memberCustIdArr.length;i++)
-		{
-			if(memberCustIdArr[i].equals(custId))
-			{
-				this.upgradeCustomer(rentalAmount);
-				custType=(char)memberCustIdArr[i].charAt(this.custId.length()-1);
-				
-				if(custType=='P')
-				{
-					discountAmount=0.15f*rentalAmount;
-					break;
-				}
-				else if(custType=='R')
-				{
-					discountAmount=0.10f*rentalAmount;
-					break;
-				}
-			}else
-			{
-				discountAmount=-1.0f;
-			}
-		}
+        //Implement your logic her
+        if(getNoOfDays() > 0){
+            if(reqSubscriptionType.equals("Annually")){
+                cost = 30 * getNoOfDays();
+            }
+            else if(reqSubscriptionType.equals("Semi-Annually")){
+                cost = 45 * getNoOfDays();
+            }
+            else if(reqSubscriptionType.equals("Quaterly")){
+                cost = 50 * getNoOfDays();
+            }
+            else{
+                cost = -1;
+            }
+        }
+        else{
+            cost = -1;
+        }
 		
-		return discountAmount;
+		return cost;
+		
 	}
 	
-*****************
-f
+	@Override
+	public String toString() {
+		return "PremiumCustomer (custName=" + this.getCustName() + ", custEmailId=" + this.getCustEmailId() + ", custType=" + this.getCustType()
+				+ ", custLocation=" + this.getCustLocation() + ", reqDate=" + this.getReqDate() + ", reqServicesArr="
+				+ Arrays.toString(this.getReqServicesArr()) + ", reqWeightArr=" + Arrays.toString(this.getReqWeightArr()) + ", noOfDays="
+				+ this.getNoOfDays() + ", reqSubscriptionType="+this.reqSubscriptionType + ")";
+	}
+
+
+}
+
+
+***********
