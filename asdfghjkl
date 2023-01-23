@@ -1,32 +1,5 @@
-full classs bheji h pura chep dena 
+
 *******premium customer class 
-
-
-package progusingjava;
-import java.util.Arrays;
-
-//DO NOT MODIFY THE CODE PROVIDED TO YOU
-
-public class PremiumCustomer extends Customer {
-	private String reqSubscriptionType;
-	private float creditPoints;
-
-	public PremiumCustomer(String custName,String custEmailId,char custType,String custLocation,String reqDate,String[] reqServicesArr,int[] reqWeightArr,int noOfDays,String reqSubscriptionType) {
-		super(custName,custEmailId,custType,custLocation,reqDate,reqServicesArr,reqWeightArr,noOfDays);
-		this.reqSubscriptionType=reqSubscriptionType;
-	}	
-
-	public String getReqSubscriptionType() {
-		return this.reqSubscriptionType;
-	}
-
-	public float getCreditPoints() {
-		return this.creditPoints;
-	}
-
-	public void setCreditPoints(float creditPoints) {
-		this.creditPoints = creditPoints;
-	}
 
 	//To Trainees
 	@Override
@@ -56,16 +29,25 @@ public class PremiumCustomer extends Customer {
 		
 	}
 	
-	@Override
-	public String toString() {
-		return "PremiumCustomer (custName=" + this.getCustName() + ", custEmailId=" + this.getCustEmailId() + ", custType=" + this.getCustType()
-				+ ", custLocation=" + this.getCustLocation() + ", reqDate=" + this.getReqDate() + ", reqServicesArr="
-				+ Arrays.toString(this.getReqServicesArr()) + ", reqWeightArr=" + Arrays.toString(this.getReqWeightArr()) + ", noOfDays="
-				+ this.getNoOfDays() + ", reqSubscriptionType="+this.reqSubscriptionType + ")";
-	}
-
-
-}
-
 
 ***********
+abstract class customer 
+
+***
+public void generateCustomerId() {
+		
+        //Implement your logic here
+        setCustomerId(custName.substring(0,1).toUpperCase() + ++counter);
+		
+	}
+
+	//To Trainees
+	public Boolean validateCustomerDetails() {
+        //Implement your logic here
+        
+        if(this.custEmailId.endsWith(".com") && (this.custLocation.equals("Bangalore") || this.custLocation.equals("Hyderabad"))){
+            return true;
+        }
+		//Change the return statement accordingly
+        return false;
+	}
